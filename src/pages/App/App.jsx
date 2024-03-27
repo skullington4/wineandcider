@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import Notes from '../Notes/Notes';
+import NewNote from '../NewNote/NewNote';
 import NavBar from '../../components/NavBar/NavBar';
 import Home from '../Home/Home';
 
@@ -19,8 +19,8 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<Home />} />
-              <Route path="/orders/new" element={<NewOrderPage />} />
-              <Route path="/orders" element={<OrderHistoryPage />} />
+              <Route path="/notes" element={<Notes />} />
+              <Route path="/notes/new" element={<NewNote />} />
             </Routes>
           </>
           :
