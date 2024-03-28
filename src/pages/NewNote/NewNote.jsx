@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function NewNote({ user }) {
 
-  const [note, setNote] = useState({});
+  const [note, setNote] = useState("");
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -20,7 +20,7 @@ export default function NewNote({ user }) {
         <h1>New Note page</h1>
 
 
-        <div>
+        <div className='newNoteDiv'>
             <form action="" onSubmit={handleSubmit}>
               <input type="submit" value="Add Note" />
               <label htmlFor="text">
