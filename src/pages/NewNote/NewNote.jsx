@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function NewNote({}) {
+export default function NewNote({ user }) {
 
   const [note, setNote] = useState({});
 

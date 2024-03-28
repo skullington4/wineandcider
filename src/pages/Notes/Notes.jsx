@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Notes({}) {
+export default function Notes({ user }) {
 
   return (
     <main>

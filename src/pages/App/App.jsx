@@ -7,6 +7,7 @@ import Notes from '../Notes/Notes';
 import NewNote from '../NewNote/NewNote';
 import NavBar from '../../components/NavBar/NavBar';
 import Home from '../Home/Home';
+import Conversions from '../Conversions/Conversions';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -19,8 +20,9 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<Home />} />
-              <Route path="/notes" element={<Notes />} />
-              <Route path="/notes/new" element={<NewNote />} />
+              <Route path="/notes" element={<Notes user={user} />} />
+              <Route path="/notes/new" element={<NewNote user={user} />} />
+              <Route path="/conversions" element={<Conversions />} />
             </Routes>
           </>
           :
