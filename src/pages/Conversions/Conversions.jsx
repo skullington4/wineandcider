@@ -11,15 +11,18 @@ export default function Conversions({}) {
 
     function handleConversion(e) {
         e.preventDefault();
+        setVar3(Number(var1) + Number(var2));
         console.log('handleConversion');
     }
 
     function handleVar1Change(e) {
         setVar1(e.target.value);
+        handleConversion(e);
     }
 
     function handleVar2Change(e) {
         setVar2(e.target.value);
+        handleConversion(e);
     }
 
     function handleVar3Change(e) {
@@ -62,7 +65,7 @@ export default function Conversions({}) {
             </div>
             <div className='convOutput'>
                 <label htmlFor="result1">Result1: </label>
-                <div>Addition: {Number(var1) + Number(var2)}</div>
+                <div>Addition: {var3}</div>
             </div>
             <div className='convOutput'>
                 <label htmlFor="result2">Result2: </label>
