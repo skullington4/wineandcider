@@ -6,6 +6,7 @@ export async function getAllNotes(id) {
 }
 
 export async function createNote(noteData) {
+    console.log("made it to notes-service.js" + noteData);
     const newNote = await notesAPI.createNoteRequest(noteData);
     return newNote;
   }

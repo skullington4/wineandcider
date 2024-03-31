@@ -2,7 +2,7 @@
 
 // Add the following import
 import sendRequest from './send-request';
-const BASE_URL = '/api/users';
+const BASE_URL = process.env.REACT_APP_API_URL + '/api/users';
 
 // Refactored code below
 export function signUp(userData) {

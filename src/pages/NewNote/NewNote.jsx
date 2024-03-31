@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as notesService from '../../utilities/notes-service';
 
 export default function NewNote({ user }) {
 
@@ -6,8 +7,8 @@ export default function NewNote({ user }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    // const createdNote = await notesService.createNote(note);
-    console.log(note);
+    const createdNote = await notesService.createNote(note);
+    console.log(createdNote);
     setNote('');
   }
 

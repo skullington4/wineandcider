@@ -14,6 +14,7 @@ module.exports = {
 //Order it by date
 
 async function create(req, res) {
+  console.log("req.body");
   try{
     req.body.from = req.user._id;
     const createdNote = await Note.create(req.body);
