@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import Home from '../Home/Home';
 import Conversions from '../Conversions/Conversions';
 import Steps from '../Steps/Steps';
+import Projects from '../Projects/Projects';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/notes/new" element={<NewNote user={user} />} />
               <Route path="/conversions" element={<Conversions />} />
               <Route path="/steps" element={<Steps />} />
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </>
           :

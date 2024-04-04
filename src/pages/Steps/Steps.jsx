@@ -19,6 +19,7 @@ export default function Steps({}) {
   return (
     <main>
         <h1>Steps Page</h1>
+
         <S1harvest />
         <S2Destemming />
         <S3Must />
