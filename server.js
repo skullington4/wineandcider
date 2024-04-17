@@ -30,6 +30,7 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/notes', require('./routes/api/notes'));
 app.use('/api/projects', require('./routes/api/projects'));
 
+
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
 app.get('/*', function(req, res) {

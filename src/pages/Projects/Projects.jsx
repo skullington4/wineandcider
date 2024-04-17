@@ -1,11 +1,23 @@
 import { useState } from 'react';
 import * as projectService from '../../utilities/projects-service';
-import { set } from 'mongoose';
+import { useEffect } from 'react';
 
 
 export default function Projects({}) {
 
   const [projectName, setProjectName] = useState("");
+  const [projects, setProjects] = useState([]);
+  const [placeholder, setPlaceholder] = useState("Project Name");
+
+
+  useEffect(() => {
+    async function getProjects() {
+      const projects = await projectService.getAllProjects();
+      console.log(projects);
+    }
+    getProjects();
+  }, []);
+
   
   const handleProjectName = (e) => {
     setProjectName(e.target.value);
@@ -16,9 +28,13 @@ export default function Projects({}) {
     console.log("Project Name: " + projectName);
     const formData = new FormData();
     formData.append('projectName', projectName);
+    formData.append('placeholder', placeholder);
+    console.log(formData);
+    formData.forEach((value, key) => {
+      console.log("Formdata:" + key, value);
+    });
     const newProject = await projectService.createProject(formData);
     console.log(newProject);
-
   }
 
   return (
@@ -35,7 +51,7 @@ export default function Projects({}) {
             <option value="project3">Project 3</option>
           </select>
           <div>
-            <input type="text" placeholder="Project Name" onChange={handleProjectName}></input>
+            <input type="text" name='text' id='text' placeholder="Project Name" onChange={handleProjectName} value={projectName}></input>
             <button onClick={handleClick}>Add Project</button>
           </div>
         </div>
