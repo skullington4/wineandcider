@@ -54,7 +54,7 @@ export default function Projects({}) {
       <div className='projectHolder'>
         {projects.map((project) => (
           <div className='singleProject' key={project.id}>
-            <Link to={`/project/${project._id}`} project={project}>
+            <Link to={`/project/${project._id}`}>
               <h3>{project.project}</h3>
               <p>{project.description}</p>
             </Link>

@@ -67,6 +67,12 @@ form {
   border: 1px solid black;
 }
 
+
+  input {
+    word-break: break-word;
+  }
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

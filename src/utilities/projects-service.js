@@ -6,7 +6,6 @@ export async function getAllProjects(id) {
 }
 
 export async function createProject(projectData) {
-    console.log("made it to projects-service.js:" + projectData.projectName);
     const newProject = await projectsAPI.createProjectRequest(projectData);
     return newProject;
   }

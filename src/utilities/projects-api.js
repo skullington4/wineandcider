@@ -4,7 +4,6 @@ const BASE_URL = process.env.REACT_APP_API_URL + '/api/projects';
 
 
 export async function createProjectRequest(projectData) {
-  console.log("made it to projects-api.js:" + projectData);
   return await sendRequest(BASE_URL, 'POST', projectData);
 }
 

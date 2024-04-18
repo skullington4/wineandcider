@@ -5,6 +5,7 @@ module.exports = {
     create,
     index,
     getAllProjects,
+    getAProject
   };
 
 //Write a controller that finds all messages from user == req.user and from == user
@@ -39,6 +40,15 @@ async function getAllProjects(req, res) {
   try{
     const allProjects = await Project.find({});
     res.json(allProjects)
+  }  catch(err) {
+    res.status(400).json(err);
+    } 
+}
+
+async function getAProject(req, res) {
+  try{
+    const project = await Project.findById(req.params.id);
+    res.json(project)
   }  catch(err) {
     res.status(400).json(err);
     } 

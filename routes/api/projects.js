@@ -8,11 +8,13 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.post('/', ensureLoggedIn, projectsCtrl.create);
 
-// POST /api/projects (create a user - sign up)
+
 router.get('/', ensureLoggedIn, projectsCtrl.index);
 
 // GET /api/projects (get all projects)
 router.get('/user/:userId', projectsCtrl.getAllProjects);
 
+// GET /api/projects/:id (get a single project)
+router.get('/:id', projectsCtrl.getAProject);
 
 module.exports = router;

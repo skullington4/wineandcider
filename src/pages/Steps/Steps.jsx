@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import * as projectService from '../../utilities/projects-service';
 import S1harvest from '../../components/S1harvest/S1harvest';
 import S2Destemming from '../../components/S2Destemming/S2Destemming';
 import S3Must from '../../components/S3Must/S3Must';
@@ -10,18 +12,32 @@ import S8Clarification from '../../components/S8Clarification/S8Clarification';
 import S9Bottling from '../../components/S9Bottling/S9Bottling';
 import S10Labeling from '../../components/S10Labeling/S10Labeling';
 import S11Aging from '../../components/S11Aging/S11Aging';
+import { set } from 'mongoose';
 
 
 
 
-export default function Steps({project}) {
+export default function Steps( user ) {
+
+  const { id } = useParams();
+  const [project, setProject] = useState(null);
+
+
+  useEffect(() => {
+    async function getProject() {
+      const project = await projectService.getSingleProject(id);
+      setProject(project);
+    }
+    getProject();
+  }, []);
+
 
   return (
     <main>
         <h1>Steps Page</h1>
-        <div className="blank">
-          {project.project}
-        </div>
+        
+
+        
         <S1harvest />
         <S2Destemming />
         <S3Must />
@@ -32,7 +48,7 @@ export default function Steps({project}) {
         <S8Clarification />
         <S9Bottling />
         <S10Labeling />
-        <S11Aging />
+        <S11Aging /> 
     </main>
   );
 }
