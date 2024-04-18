@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import * as projectService from '../../utilities/projects-service';
 import { useEffect } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import Steps from '../Steps/Steps';
 
 
 export default function Projects({}) {
@@ -36,9 +36,6 @@ export default function Projects({}) {
     console.log(newProject);
   }
 
-  const handleProjectClick = (project) => {
-    console.log(project);
-  }
 
   return (
     <main>

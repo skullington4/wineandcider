@@ -12,7 +12,6 @@ import S8Clarification from '../../components/S8Clarification/S8Clarification';
 import S9Bottling from '../../components/S9Bottling/S9Bottling';
 import S10Labeling from '../../components/S10Labeling/S10Labeling';
 import S11Aging from '../../components/S11Aging/S11Aging';
-import { set } from 'mongoose';
 
 
 
@@ -22,21 +21,20 @@ export default function Steps( user ) {
   const { id } = useParams();
   const [project, setProject] = useState(null);
 
-
-  useEffect(() => {
+  useEffect(function() {
     async function getProject() {
       const project = await projectService.getSingleProject(id);
       setProject(project);
     }
     getProject();
-  }, []);
+  }, [id]);
+
 
 
   return (
     <main>
-        <h1>Steps Page</h1>
+        <h1> Project Page</h1>
         
-
         
         <S1harvest />
         <S2Destemming />
