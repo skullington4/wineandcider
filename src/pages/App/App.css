@@ -7,22 +7,16 @@
   pointer-events: none;
 }
 
-.convPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.convPageRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+button {
+  background-color: white;
   margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  width: 200px;
 }
 
-.convOutput {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,15 +24,15 @@
   margin: 10px;
 }
 
-.newNoteDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.projectNameInput {
   margin: 10px;
+  width: 800px;
+  height: 50px;
+  text-align: left;
+  font-size: 25px;
 }
 
-.newNoteDiv input {
+.projectNameDesc {
   margin: 10px;
   width: 800px;
   height: 150px;
@@ -46,20 +40,30 @@
   font-size: 25px;
 }
 
-.Stepbox {
+.projectHolder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.projectHolder :hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+  
+}
+
+.singleProject {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
   margin: 10px;
-  border: 1px solid black;
-}
-
-button {
-  background-color: white;
-  margin: 10px;
-  padding: 10px;
-  font-size: 20px;
+  padding: 5px;
   border: 1px solid black;
 }
 
