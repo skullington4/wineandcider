@@ -14,9 +14,10 @@ async function create(req, res) {
   console.log("create function reached");
   try{
     const user = req.user;
-    const project = req.body.projectName;
-    console.log(project);
-    const createdProject = await Project.create(req.body);
+    const project = req.body.name;
+    console.log(user);
+  
+    const createdProject = await Project.create({project, user: user._id});
     console.log(createdProject);
     res.json(createdProject);
   }  catch(err) {
