@@ -14,12 +14,14 @@ import S11Aging from '../../components/S11Aging/S11Aging';
 
 
 
-export default function Steps({}) {
+export default function Steps({project}) {
 
   return (
     <main>
         <h1>Steps Page</h1>
-
+        <div className="blank">
+          {project.project}
+        </div>
         <S1harvest />
         <S2Destemming />
         <S3Must />
