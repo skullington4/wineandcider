@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as projectService from '../../utilities/projects-service';
+import S0General from '../../components/S0General/S0General';
 import S1harvest from '../../components/S1harvest/S1harvest';
 import S2Destemming from '../../components/S2Destemming/S2Destemming';
 import S3Must from '../../components/S3Must/S3Must';
@@ -29,24 +30,19 @@ export default function Steps( user ) {
     getProject();
   }, [id]);
 
+  if (!project) return null;
+
+
 
 
   return (
     <main>
-        <h1> Project Page</h1>
+        <h1> {project.project} Project Page </h1>
         
-        
+        <S0General project={project}/>
         <S1harvest />
         <S2Destemming />
-        <S3Must />
-        <S4Fermentation />
-        <S5Blending />
-        <S6Cold />
-        <S7Hot />
-        <S8Clarification />
-        <S9Bottling />
-        <S10Labeling />
-        <S11Aging /> 
+
     </main>
   );
 }

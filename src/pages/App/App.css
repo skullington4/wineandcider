@@ -32,6 +32,30 @@ form {
   font-size: 25px;
 }
 
+.flexR {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.smallButton {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  font-size: 10px;
+  border: 1px solid black;
+  width: 50px;
+}
+
+.smallInput {
+  margin: 10px;
+  width: 600px;
+  height: 40px;
+  text-align: left;
+  font-size: 25px;
+}
+
 .projectNameDesc {
   margin: 10px;
   width: 800px;
@@ -68,9 +92,6 @@ form {
 }
 
 
-  input {
-    word-break: break-word;
-  }
 
 
 @media (prefers-reduced-motion: no-preference) {

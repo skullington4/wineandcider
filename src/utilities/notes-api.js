@@ -6,6 +6,10 @@ export async function createNoteRequest(noteData) {
   return await sendRequest(BASE_URL, 'POST', noteData);
 }
 
+export async function getQuestionNoteRequest(section, question, project) {
+  return await sendRequest(BASE_URL + `/section/${section}/question/${question}/project/${project}`, 'GET');
+}
+
 export async function getNotesRequest(userId) {
   return await sendRequest(BASE_URL + `/users/${userId}`, 'GET');
 }

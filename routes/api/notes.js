@@ -10,6 +10,8 @@ router.post('/', ensureLoggedIn, notesCtrl.create);
 // POST /api/notes (create a user - sign up)
 router.get('/users/:userId', notesCtrl.index);
 
+router.get('/section/:section/question/:question/project/:project', notesCtrl.getQuestionNote);
+
 router.get('/:id', notesCtrl.getNote);
 
 router.delete('/:id', notesCtrl.deleteNote);

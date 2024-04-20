@@ -7,7 +7,8 @@ module.exports = {
     getAllNotes,
     deleteNote,
     getNote,
-    updateNote
+    updateNote,
+    getQuestionNote
   };
 
 //Write a controller that finds all messages from user == req.user and from == user
@@ -16,9 +17,20 @@ module.exports = {
 async function create(req, res) {
   console.log("req.body");
   try{
-    req.body.from = req.user._id;
+    const user = req.user;
+    req.body.user = user._id;
+    console.log(req.body);
     const createdNote = await Note.create(req.body);
     res.json(createdNote);
+  }  catch(err) {
+    res.status(400).json(err);
+    } 
+}
+
+async function getQuestionNote (req, res) {
+  try{
+    const note = await Note.find({section:req.params.section, question:req.params.question, project:req.params.project}).sort({ date: -1 });
+    res.json(note);
   }  catch(err) {
     res.status(400).json(err);
     } 

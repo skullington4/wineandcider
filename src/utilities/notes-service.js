@@ -5,6 +5,11 @@ export async function getAllNotes(id) {
   return allNote;
 }
 
+export async function getQuestionNote (section, question, project) {
+    const note = await notesAPI.getQuestionNoteRequest(section, question, project);
+    return note;
+  }
+
 export async function createNote(noteData) {
     console.log("made it to notes-service.js" + noteData);
     const newNote = await notesAPI.createNoteRequest(noteData);
