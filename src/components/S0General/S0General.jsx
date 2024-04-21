@@ -8,6 +8,8 @@ export default function S0General({ project }) {
 
 
     const [q1note, setQ1Note] = useState('') 
+    const [q2note, setQ2Note] = useState('')
+    const [q3note, setQ3Note] = useState('')
 
     const [note, setNote] = useState({
         text: '',
@@ -17,14 +19,39 @@ export default function S0General({ project }) {
         date: ''
     })
 
+    const [note2, setNote2] = useState({
+        text: '',
+        section: 'S0',
+        question: '',
+        project: project._id,
+        date: ''
+    })
+    
+    const [note3, setNote3] = useState({
+        text: '',
+        section: 'S0',
+        question: '',
+        project: project._id,
+        date: ''
+    })
+
+
     useEffect(() => {
         async function getQ1Note() {
-            //In this get request, I want to send the section (S0) and the question (1) to the backend to get the note for that question.
             const q1note = await noteService.getQuestionNote('S0', '1', project._id);
-            console.log(q1note);
             setQ1Note(q1note);
         }
+        async function getQ2Note() {
+            const q2note = await noteService.getQuestionNote('S0', '2', project._id);
+            setQ2Note(q2note);
+        }
+        async function getQ3Note() {
+            const q3note = await noteService.getQuestionNote('S0', '3', project._id);
+            setQ3Note(q3note);
+        }
         getQ1Note();
+        getQ2Note();
+        getQ3Note();
     }, []);
 
     function handleChange(evt) {
@@ -34,36 +61,92 @@ export default function S0General({ project }) {
         })
     }
 
+    function handleChange2(evt) {
+        setNote2({
+            ...note2,
+            [evt.target.name]: evt.target.value
+        })
+    }
+
+    function handleChange3(evt) {
+        setNote3({
+            ...note3,
+            [evt.target.name]: evt.target.value
+        })
+    }
+
     async function handleQuestion1(evt) {
-        evt.preventDefault()
-        setNote({
-            text: note.text,
+        evt.preventDefault();
+        const updatedNote = {
+            ...note,
             section: 'S0',
             question: '1',
             project: project._id,
             date: note.date
-        })
-        console.log(note)
-        const newNote = await noteService.createNote(note);
-        console.log(newNote);
-        setQ1Note([...q1note, newNote]);
+        };
+        setNote(updatedNote); // Update the state
+        const newNote = await noteService.createNote(updatedNote); // Use the updated note directly
+        setQ1Note(prevNotes => [...prevNotes, newNote]);
+        setNote({
+            ...note,
+            text: '',
+            date: ''
+        });
+    }
+    
+    async function handleQuestion2(evt) {
+        evt.preventDefault();
+        const updatedNote2 = {
+            ...note2,
+            section: 'S0',
+            question: '2',
+            project: project._id,
+            date: note2.date
+        };
+        setNote2(updatedNote2); // Update the state
+        const newNote = await noteService.createNote(updatedNote2); // Use the updated note directly
+        setQ2Note(prevNotes => [...prevNotes, newNote]);
+    }
+
+    async function handleQuestion3(evt) {
+        evt.preventDefault();
+        const updatedNote3 = {
+            ...note3,
+            section: 'S0',
+            question: '3',
+            project: project._id,
+            date: note3.date
+        };
+        setNote3(updatedNote3); // Update the state
+        const newNote = await noteService.createNote(updatedNote3); // Use the updated note directly
+        setQ3Note(prevNotes => [...prevNotes, newNote]);
     }
 
     async function handleDelete(index) {
         const deleteNote = await noteService.deleteNote(q1note[index]._id);
-        console.log(deleteNote);
         setQ1Note(q1note.filter((note, i) => i !== index));
     }
 
+    async function handleDelete2(index) {
+        const deleteNote = await noteService.deleteNote(q2note[index]._id);
+        setQ2Note(q2note.filter((note, i) => i !== index));
+    }
+
+    async function handleDelete3(index) {
+        const deleteNote = await noteService.deleteNote(q3note[index]._id);
+        setQ3Note(q3note.filter((note, i) => i !== index));
+    }
 
     if (!q1note) return null;
+    if (!q2note) return null;
+    if (!q3note) return null;
 
 return (
     <div className="Stepbox">
         <h1>General information</h1>
-        <div>
-            <div>
-                <h2>Notes:</h2>
+        <div className="border">
+            <div className="">
+                <h2>Fruit used:</h2>
                 {q1note.map((note, index) => (
                     <div className='flexR'  key={index}>
                         <div>
@@ -80,11 +163,10 @@ return (
                 ))}
             </div>
             <div className="">
-                <h2>New Note:</h2>
                 <form className="smallForm" action='' onSubmit={handleQuestion1}>
                     <div className="flexR">
                         <label htmlFor="">Enter Apples/Grapes used:</label>
-                        <input className='smallInput' type="text" name='text' id='text' placeholder="Fruit used" value={note.text} onChange={handleChange}></input>
+                        <textarea className='smallInput' name='text' id='text' placeholder="Fruit used" value={note.text} onChange={handleChange}></textarea>
                     </div>
                     <div className="flexR">
                         <label htmlFor="">Enter Date:</label>
@@ -94,6 +176,69 @@ return (
                 </form>
             </div>
         </div>
+
+
+        <div className="border">
+            <h2>How was the fruit obtained:</h2>
+            <div className="">
+                {q2note.map((note, index) => (
+                    <div className='flexR' key={index}>
+                        <div>
+                            Obtained by: 
+                            <p>{note.text}</p>
+                        </div>
+                        <div>Date:
+                            <p>{new Date(note.date).toLocaleDateString()}</p>
+                        </div>
+                        <button className="smallButton">Edit</button>
+                        <button className="smallButton" onClick={() => handleDelete2(index)}>Delete</button>
+                    </div>
+                ))}
+            </div>
+            <form className="smallForm" action='' onSubmit={handleQuestion2}>
+                <div className="flexR">
+                    <textarea className='smallInput' name='text' id='text' placeholder="Growing or Purchased" value={note2.text} onChange={handleChange2}></textarea>
+                </div>
+                <div className="flexR">
+                    <label htmlFor="">Enter Date:</label>
+                    <input type="date" name="date" id="date" onChange={(evt) => setNote2({...note2, date: evt.target.value})} />
+                </div>
+                <button className='projectButton' type="submit">Add Note</button>
+            </form>
+        </div>
+
+        <div className="border">
+            <h2>General Notes:</h2>
+            <div>
+                {q3note.length ? (
+                    q3note.map((note, index) => (
+                    <div className='flexR' key={index}>
+                        <div>
+                            Prepared by: 
+                            <p>{note.text}</p>
+                        </div>
+                        <div>Date:
+                            <p>{new Date(note.date).toLocaleDateString()}</p>
+                        </div>
+                        <button className="smallButton">Edit</button>
+                        <button className="smallButton" onClick={() => handleDelete3(index)}>Delete</button>
+                    </div>
+                )))
+                : <h3>No notes yet</h3>
+                }
+            </div>
+            <form className="smallForm" action='' onSubmit={handleQuestion3}>
+                <div className="flexR">
+                    <textarea className='largeInput' name='text' id='text' placeholder="General comments" value={note3.text} onChange={handleChange3}></textarea>
+                </div>
+                <div className="flexR">
+                    <label htmlFor="">Enter Date:</label>
+                    <input type="date" name="date" id="date" onChange={(evt) => setNote3({...note3, date: evt.target.value})} />
+                </div>
+                <button className='projectButton' type="submit">Add Note</button>
+            </form>
+        </div>
+
     </div>
 );
 }

@@ -39,9 +39,11 @@ export default function Steps( user ) {
     <main>
         <h1> {project.project} Project Page </h1>
         
-        <S0General project={project}/>
-        <S1harvest />
-        <S2Destemming />
+        <S0General project={project} />
+
+        <S1harvest project={project} />
+        <S2Destemming project={project} />
+
 
     </main>
   );

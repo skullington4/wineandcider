@@ -24,6 +24,17 @@ form {
   margin: 10px;
 }
 
+h1 {
+  font-size: 70px;
+}
+
+.border {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
 .projectNameInput {
   margin: 10px;
   width: 800px;
@@ -52,6 +63,15 @@ form {
   margin: 10px;
   width: 600px;
   height: 40px;
+  text-align: left;
+  font-size: 25px;
+}
+
+.largeInput {
+  margin: 10px;
+  width: 800px;
+  height: 150px;
+  word-wrap: break-word;
   text-align: left;
   font-size: 25px;
 }
