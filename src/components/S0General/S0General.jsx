@@ -157,7 +157,6 @@ return (
 
                             <p>{new Date(note.date).toLocaleDateString()}</p>
                         </div>
-                        <button className="smallButton">Edit</button>
                         <button className="smallButton" onClick={() => handleDelete(index)}>Delete</button>
                     </div>
                 ))}
@@ -190,7 +189,6 @@ return (
                         <div>Date:
                             <p>{new Date(note.date).toLocaleDateString()}</p>
                         </div>
-                        <button className="smallButton">Edit</button>
                         <button className="smallButton" onClick={() => handleDelete2(index)}>Delete</button>
                     </div>
                 ))}
@@ -220,7 +218,6 @@ return (
                         <div>Date:
                             <p>{new Date(note.date).toLocaleDateString()}</p>
                         </div>
-                        <button className="smallButton">Edit</button>
                         <button className="smallButton" onClick={() => handleDelete3(index)}>Delete</button>
                     </div>
                 )))

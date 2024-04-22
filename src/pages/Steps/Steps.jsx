@@ -40,7 +40,7 @@ export default function Steps( user ) {
         <h1> {project.project} Project Page </h1>
         
         <S0General project={project} />
-
+        
         <S1harvest project={project} />
         <S2Destemming project={project} />
 
