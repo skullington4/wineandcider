@@ -18,6 +18,7 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+  padding-top: 70px;
 }
 
 code {
@@ -79,10 +80,6 @@ code {
   border-radius: 1vmin;
 }
 
-p.error-message {
-  color: var(--orange);
-  text-align: center;
-}
 
 form {
   display: grid;

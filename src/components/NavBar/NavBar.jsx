@@ -10,25 +10,25 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link className='linkStyle' to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/steps">Steps</Link>
+      <Link className='linkStyle' to="/steps">Steps</Link>
       &nbsp; | &nbsp;
-      <Link to="/projects">Projects</Link>
+      <Link className='linkStyle' to="/projects">Projects</Link>
       &nbsp; | &nbsp;
-      <Link to="/conversions">Conversions</Link>
+      <Link className='linkStyle' to="/conversions">Conversions</Link>
       &nbsp; | &nbsp;
       {user && (
         <>   
-          <Link to="/notes">Notes</Link>
+          <Link className='linkStyle' to="/notes">Notes</Link>
           &nbsp; | &nbsp;
-          <Link to="/notes/new">New Note</Link>
+          <Link className='linkStyle' to="/notes/new">New Note</Link>
           &nbsp; | &nbsp;
         </>
       
       )}
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+      <span  className='linkStyle'>Welcome, {user.name}</span>
+      &nbsp;&nbsp;<Link className='linkStyle' to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   );
 }
