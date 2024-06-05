@@ -61,11 +61,19 @@ h1 {
   font-size: 25px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
 .flexR {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .smallButton {

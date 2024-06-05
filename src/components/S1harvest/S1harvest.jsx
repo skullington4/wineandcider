@@ -148,7 +148,7 @@ return (
             <div className="">
                 <h2>Harvest Method used:</h2>
                 {q1note.map((note, index) => (
-                    <div className='flexR'  key={index}>
+                    <div className='grid'  key={index}>
                         <div>
                             Apples/Grapes used: 
                             <p>{note.text}</p>
@@ -163,11 +163,11 @@ return (
             </div>
             <div className="">
                 <form className="smallForm" action='' onSubmit={handleQuestion1}>
-                    <div className="flexR">
+                    <div className="grid">
                         <label htmlFor="">Enter Apples/Grapes used:</label>
                         <textarea className='smallInput' name='text' id='text' placeholder="Fruit used" value={note.text} onChange={handleChange}></textarea>
                     </div>
-                    <div className="flexR">
+                    <div className="grid">
                         <label htmlFor="">Enter Date:</label>
                         <input type="date" name="date" id="date" onChange={(evt) => setNote({...note, date: evt.target.value})} />
                     </div>
@@ -181,7 +181,7 @@ return (
             <h2>How was the fruit obtained:</h2>
             <div className="">
                 {q2note.map((note, index) => (
-                    <div className='flexR' key={index}>
+                    <div className='grid' key={index}>
                         <div>
                             Obtained by: 
                             <p>{note.text}</p>
@@ -194,10 +194,10 @@ return (
                 ))}
             </div>
             <form className="smallForm" action='' onSubmit={handleQuestion2}>
-                <div className="flexR">
+                <div className="grid">
                     <textarea className='smallInput' name='text' id='text' placeholder="Growing or Purchased" value={note2.text} onChange={handleChange2}></textarea>
                 </div>
-                <div className="flexR">
+                <div className="grid">
                     <label htmlFor="">Enter Date:</label>
                     <input type="date" name="date" id="date" onChange={(evt) => setNote2({...note2, date: evt.target.value})} />
                 </div>
@@ -206,11 +206,11 @@ return (
         </div>
 
         <div className="border">
-            <h2>General Notes:</h2>
+            <h2>General Notes for Step 1:</h2>
             <div>
                 {q3note.length ? (
                     q3note.map((note, index) => (
-                    <div className='flexR' key={index}>
+                    <div className='grid' key={index}>
                         <div>
                             Prepared by: 
                             <p>{note.text}</p>
@@ -225,10 +225,10 @@ return (
                 }
             </div>
             <form className="smallForm" action='' onSubmit={handleQuestion3}>
-                <div className="flexR">
+                <div className="grid">
                     <textarea className='largeInput' name='text' id='text' placeholder="General comments" value={note3.text} onChange={handleChange3}></textarea>
                 </div>
-                <div className="flexR">
+                <div className="grid">
                     <label htmlFor="">Enter Date:</label>
                     <input type="date" name="date" id="date" onChange={(evt) => setNote3({...note3, date: evt.target.value})} />
                 </div>
